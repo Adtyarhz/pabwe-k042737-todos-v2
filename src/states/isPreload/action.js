@@ -1,4 +1,4 @@
-import { hideLoading, showLoading } from "react-redux-loadingbar";
+import { hideLoading, showLoading } from "react-redux-loading-bar";
 import api from "../../utils/api";
 import { setAuthLoginActionCreator } from "../authLogin/action";
 const ActionType = {

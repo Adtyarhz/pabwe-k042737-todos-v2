@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { FaPlus, FaUser, FaRightFromBracket } from "reacticons/fa6";
+import { FaPlus, FaUser, FaRightFromBracket } from "react-icons/fa6";
 function Navigation({ authLogin, onAuthSignOut }) {
   const { id, name, photo } = authLogin;
   return (
@@ -58,7 +58,7 @@ dropdown-menu-end"
                   aria-labelledby="navUser"
                 >
                   <li>
-                    <Link className="dropdownitem" to="/users/me">
+                    <Link className="dropdown-item" to="/users/me">
                       <FaUser /> Profile
                     </Link>
                   </li>
