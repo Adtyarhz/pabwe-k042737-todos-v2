@@ -10,6 +10,8 @@ import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProfilePage from "./pages/ProfilePage";
+import TodoAddPage from "./pages/TodoAddPage";
+import TodoDetailPage from "./pages/TodoDetailPage";
 function App() {
 	const { authLogin = null, isPreload = false } = useSelector(
 		(states) => states
@@ -79,6 +81,8 @@ ${activeRegister} btl`}
 						<Route path="/*" element={<NotFoundPage />} />
 						<Route path="/" element={<HomePage />} />
 						<Route path="/users/me" element={<ProfilePage />} />
+						<Route path="/todos/:id" element={<TodoDetailPage />} />
+						<Route path="/todos/add" element={<TodoAddPage />} />
 					</Routes>
 				</main>
 			</div>
