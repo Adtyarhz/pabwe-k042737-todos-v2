@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ProfilePage from "./pages/ProfilePage";
 function App() {
 	const { authLogin = null, isPreload = false } = useSelector(
 		(states) => states
@@ -77,6 +78,7 @@ ${activeRegister} btl`}
 					<Routes>
 						<Route path="/*" element={<NotFoundPage />} />
 						<Route path="/" element={<HomePage />} />
+						<Route path="/users/me" element={<ProfilePage />} />
 					</Routes>
 				</main>
 			</div>
