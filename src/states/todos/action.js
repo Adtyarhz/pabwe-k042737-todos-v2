@@ -1,4 +1,4 @@
-import { hideLoading, showLoading } from "react-redux-loadingbar";
+import { hideLoading, showLoading } from "react-redux-loading-bar";
 import api from "../../utils/api";
 import { showErrorDialog } from "../../utils/tools";
 const ActionType = {
