@@ -5,25 +5,29 @@ import isPreloadReducer from "./isPreload/reducer";
 import isAuthRegisterReducer from "./isAuthRegister/reducer";
 import isUserChangePhotoReducer from "./isUserChangePhoto/reducer";
 import {
-	todosReducer,
-	isAddTodoReducer,
-	isDeleteTodoReducer,
-	detailTodoReducer,
+  todosReducer,
+  isAddTodoReducer,
+  isDeleteTodoReducer,
+  detailTodoReducer,
+  isChangeCoverReducer, // Import reducer untuk change cover
 } from "./todos/reducer";
+
 const store = configureStore({
-	reducer: {
-		// Auth
-		isAuthRegister: isAuthRegisterReducer,
-		authLogin: authLoginReducer,
-		isPreload: isPreloadReducer,
-		loadingBar: loadingBarReducer,
-		// Profile
-		isUserChangePhoto: isUserChangePhotoReducer,
-		// Todo
-		todos: todosReducer,
-		isAddTodo: isAddTodoReducer,
-		isDeleteTodo: isDeleteTodoReducer,
-		detailTodo: detailTodoReducer,
-	},
+  reducer: {
+    // Auth
+    isAuthRegister: isAuthRegisterReducer,
+    authLogin: authLoginReducer,
+    isPreload: isPreloadReducer,
+    loadingBar: loadingBarReducer,
+    // Profile
+    isUserChangePhoto: isUserChangePhotoReducer,
+    // Todo
+    todos: todosReducer,
+    isAddTodo: isAddTodoReducer,
+    isDeleteTodo: isDeleteTodoReducer,
+    detailTodo: detailTodoReducer,
+    isChangeCover: isChangeCoverReducer, // Tambahkan reducer change cover
+  },
 });
+
 export default store;

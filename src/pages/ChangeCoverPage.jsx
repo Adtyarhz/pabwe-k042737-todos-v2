@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ChangeCover = () => {
+const ChangeCoverPage = () => {
   const [cover, setCover] = useState(null); // Simpan URL atau file cover
   const [preview, setPreview] = useState(null); // Preview untuk cover baru
 

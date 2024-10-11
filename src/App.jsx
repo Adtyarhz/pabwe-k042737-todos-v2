@@ -13,82 +13,84 @@ import ProfilePage from "./pages/ProfilePage";
 import TodoAddPage from "./pages/TodoAddPage";
 import TodoUpdatePage from "./pages/TodoUpdatePage";
 import TodoDetailPage from "./pages/TodoDetailPage";
+import ChangeCoverPage from "./pages/ChangeCoverPage";
 function App() {
-	const { authLogin = null, isPreload = false } = useSelector(
-		(states) => states
-	);
-	const location = useLocation();
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(asyncPreloadProcess());
-	}, [dispatch]);
-	const onAuthSignOut = () => {
-		dispatch(asyncUnsetAuthLogin());
-	};
-	if (isPreload) {
-		return null;
-	}
-	if (authLogin === null) {
-		const activeRegister = location.pathname === "/register" ? "active" : "";
-		const activeLogin = location.pathname !== "/register" ? "active" : "";
-		return (
-			<div>
-				<header className="fixed-top">
-					<Loading />
-				</header>
-				<div className="w-300px mx-auto mt-5">
-					<div className="card shadow-sm">
-						<div className="text-center py-2">
-							<h2>Forum App</h2>
-						</div>
-						<ul className="nav nav-pills mb-3">
-							<li className="nav-item w-50 textcenter">
-								<Link
-									className={`nav-link
+  const { authLogin = null, isPreload = false } = useSelector(
+    (states) => states
+  );
+  const location = useLocation();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(asyncPreloadProcess());
+  }, [dispatch]);
+  const onAuthSignOut = () => {
+    dispatch(asyncUnsetAuthLogin());
+  };
+  if (isPreload) {
+    return null;
+  }
+  if (authLogin === null) {
+    const activeRegister = location.pathname === "/register" ? "active" : "";
+    const activeLogin = location.pathname !== "/register" ? "active" : "";
+    return (
+      <div>
+        <header className="fixed-top">
+          <Loading />
+        </header>
+        <div className="w-300px mx-auto mt-5">
+          <div className="card shadow-sm">
+            <div className="text-center py-2">
+              <h2>Forum App</h2>
+            </div>
+            <ul className="nav nav-pills mb-3">
+              <li className="nav-item w-50 textcenter">
+                <Link
+                  className={`nav-link
 ${activeLogin} btl`}
-									to="/"
-								>
-									Login
-								</Link>
-							</li>
-							<li className="nav-item w-50 textcenter">
-								<Link
-									className={`nav-link
+                  to="/"
+                >
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item w-50 textcenter">
+                <Link
+                  className={`nav-link
 ${activeRegister} btl`}
-									to="/register"
-								>
-									Register
-								</Link>
-							</li>
-						</ul>
-						<Routes>
-							<Route path="/*" element={<LoginPage />} />
-							<Route path="/register" element={<RegisterPage />} />
-						</Routes>
-					</div>
-				</div>
-			</div>
-		);
-	}
-	return (
-		<>
-			<div>
-				<header className="fixed-top">
-					<Navigation authLogin={authLogin} onAuthSignOut={onAuthSignOut} />
-					<Loading />
-				</header>
-				<main className="margin-main">
-					<Routes>
-						<Route path="/*" element={<NotFoundPage />} />
-						<Route path="/" element={<HomePage />} />
-						<Route path="/users/me" element={<ProfilePage />} />
-						<Route path="/todos/:id" element={<TodoDetailPage />} />
-						<Route path="/todos/:id/edit" element={<TodoUpdatePage />} />
-						<Route path="/todos/add" element={<TodoAddPage />} />
-					</Routes>
-				</main>
-			</div>
-		</>
-	);
+                  to="/register"
+                >
+                  Register
+                </Link>
+              </li>
+            </ul>
+            <Routes>
+              <Route path="/*" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+            </Routes>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  return (
+    <>
+      <div>
+        <header className="fixed-top">
+          <Navigation authLogin={authLogin} onAuthSignOut={onAuthSignOut} />
+          <Loading />
+        </header>
+        <main className="margin-main">
+          <Routes>
+            <Route path="/*" element={<NotFoundPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/users/me" element={<ProfilePage />} />
+            <Route path="/todos/:id" element={<TodoDetailPage />} />
+            <Route path="/todos/:id/edit" element={<TodoUpdatePage />} />
+            <Route path="/todos/add" element={<TodoAddPage />} />
+            <Route path="/todos/:id/cover" element={<ChangeCoverPage />} />
+          </Routes>
+        </main>
+      </div>
+    </>
+  );
 }
 export default App;
