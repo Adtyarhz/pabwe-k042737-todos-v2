@@ -138,7 +138,6 @@ const api = (() => {
 		}
 		return message;
 	}
-
 	async function deleteTodo(id) {
 		const response = await _fetchWithAuth(`${BASE_URL}/todos/${id}`, {
 			method: "DELETE",

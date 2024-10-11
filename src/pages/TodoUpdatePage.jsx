@@ -56,60 +56,105 @@ const TodoUpdatePage = () => {
     });
   };
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await dispatch(asyncUpdateTodo({ id, ...formData }));
-    } catch (error) {
-      console.error("Update error:", error);
-    }
-  };
+	// Handle form submission
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			await dispatch(asyncUpdateTodo({ id, ...formData }));
+		} catch (error) {
+			console.error("Update error:", error);
+		}
+	};
 
-  return (
-    <div className="container" style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>Edit Todo</h1>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-        <div>
-          <label htmlFor="title" style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-            style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
-          />
-        </div>
-        <div>
-          <label htmlFor="description" style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-            style={{ width: '100%', padding: '8px', borderRadius: '5px', border: '1px solid #ccc' }}
-          />
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <label htmlFor="is_finished" style={{ marginRight: '10px' }}>
-            <input
-              type="checkbox"
-              id="is_finished"
-              name="is_finished"
-              checked={formData.is_finished}
-              onChange={handleChange}
-              style={{ marginRight: '5px' }}
-            />
-            Finished
-          </label>
-        </div>
-        <button type="submit" style={{ padding: '10px 20px', backgroundColor: '#007bff', color: '#fff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>
-          Update Todo
-        </button>
-      </form>
-    </div>
-  );
+	return (
+		<div
+			className="container"
+			style={{ maxWidth: "600px", margin: "0 auto", padding: "20px" }}
+		>
+			<h1 style={{ textAlign: "center", marginBottom: "20px" }}>Edit Todo</h1>
+			<form
+				onSubmit={handleSubmit}
+				style={{ display: "flex", flexDirection: "column", gap: "15px" }}
+			>
+				<div>
+					<label
+						htmlFor="title"
+						style={{
+							display: "block",
+							marginBottom: "5px",
+							fontWeight: "bold",
+						}}
+					>
+						Title:
+					</label>
+					<input
+						type="text"
+						id="title"
+						name="title"
+						value={formData.title}
+						onChange={handleChange}
+						style={{
+							width: "100%",
+							padding: "8px",
+							borderRadius: "5px",
+							border: "1px solid #ccc",
+						}}
+					/>
+				</div>
+				<div>
+					<label
+						htmlFor="description"
+						style={{
+							display: "block",
+							marginBottom: "5px",
+							fontWeight: "bold",
+						}}
+					>
+						Description:
+					</label>
+					<textarea
+						id="description"
+						name="description"
+						value={formData.description}
+						onChange={handleChange}
+						style={{
+							width: "100%",
+							padding: "8px",
+							borderRadius: "5px",
+							border: "1px solid #ccc",
+						}}
+					/>
+				</div>
+				<div style={{ display: "flex", alignItems: "center" }}>
+					<label htmlFor="is_finished" style={{ marginRight: "10px" }}>
+						<input
+							type="checkbox"
+							id="is_finished"
+							name="is_finished"
+							checked={formData.is_finished}
+							onChange={handleChange}
+							style={{ marginRight: "5px" }}
+						/>
+						Finished
+					</label>
+				</div>
+				<button
+					type="submit"
+					onClick={() => navigate(`/`)}
+					style={{
+						padding: "10px 20px",
+						backgroundColor: "#007bff",
+						color: "#fff",
+						border: "none",
+						borderRadius: "5px",
+						cursor: "pointer",
+					}}
+				>
+					Update Todo
+				</button>
+			</form>
+		</div>
+	);
 };
 
 export default TodoUpdatePage;
