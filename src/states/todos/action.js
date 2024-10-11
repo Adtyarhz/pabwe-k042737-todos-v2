@@ -4,6 +4,7 @@ import { showErrorDialog } from "../../utils/tools";
 const ActionType = {
 	GET_TODOS: "GET_TODOS",
 	ADD_TODO: "ADD_TODO",
+	UPDATE_TODO: "UPDATE_TODO",
 	DELETE_TODO: "DELETE_TODO",
 	DETAIL_TODO: "DETAIL_TODO",
 };
@@ -22,6 +23,14 @@ function addTodoActionCreator(status) {
 			status,
 		},
 	};
+}
+function updateTodoActionCreator(status){
+	return {
+		type: ActionType.UPDATE_TODO,
+		payload: {
+			status,
+		}
+	}
 }
 function deleteTodoActionCreator(status) {
 	return {
@@ -75,6 +84,18 @@ function asyncDeleteTodo(id) {
 		dispatch(hideLoading());
 	};
 }
+function asyncUpdateTodo(id) {
+	return async (dispatch) => {
+		dispatch(showLoading());
+		try {
+			await api.putUpdateTodo(id);
+			dispatch(updateTodoActionCreator(true));
+		} catch (error) {
+			showErrorDialog(error.message);
+		}
+		dispatch(hideLoading());
+	}
+}
 function asyncDetailTodo(id) {
 	return async (dispatch) => {
 		dispatch(showLoading());
@@ -95,6 +116,8 @@ export {
 	asyncAddTodo,
 	deleteTodoActionCreator,
 	asyncDeleteTodo,
+	updateTodoActionCreator,
+	asyncUpdateTodo,
 	detailTodoActionCreator,
 	asyncDetailTodo,
 };
