@@ -9,7 +9,7 @@ function TodoList({ todos, onDeleteTodo, onChangeCover }) {
           key={todo.id}
           todo={todo}
           onDeleteTodo={onDeleteTodo}
-          onChangeCover={onChangeCover} // Tambahkan prop baru
+          onChangeCover={onChangeCover}
         />
       ))}
     </div>
@@ -19,7 +19,7 @@ function TodoList({ todos, onDeleteTodo, onChangeCover }) {
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.shape(todoItemShape)).isRequired,
   onDeleteTodo: PropTypes.func.isRequired,
-  onChangeCover: PropTypes.func.isRequired, // Prop baru untuk handle perubahan cover
+  onChangeCover: PropTypes.func.isRequired,
 };
 
 export default TodoList;
