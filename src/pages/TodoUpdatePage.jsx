@@ -12,6 +12,7 @@ const TodoUpdatePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  
   // Get the current todo details from the state
   const todo = useSelector((state) => state.detailTodo);
   const isUpdateTodo = useSelector((state) => state.isUpdateTodo);
